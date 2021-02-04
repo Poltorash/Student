@@ -6,7 +6,55 @@
         xmlns:local="clr-namespace:Student"
         mc:Ignorable="d"
         Title="MenuWindow" Height="450" Width="800">
+    <Window.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="15"/>
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="Width" Value="90"/>
+            <Setter Property="Height" Value="20"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Foreground" Value="#1E90FF"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Padding" Value="5"/>
+        </Style>
+    </Window.Resources>
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="75"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="130"/>
+        </Grid.ColumnDefinitions>
+        <Menu Background="White" Grid.Column="0" Grid.Row="0">
+            <MenuItem Header="Справочники">
+                <MenuItem Header="Куратор" Click="CuratorWin_Click"/>
+                <MenuItem Header="Группа" Click="GroupWin_Click"/>
+            </MenuItem>
+            <MenuItem Header="Отчет" Click="ReportWin_Click"/>
+        </Menu>
+        <DataGrid Grid.Row="1" x:Name="DGR_Student">
+            
+        </DataGrid>
+        <StackPanel VerticalAlignment="Center" Grid.Row="1" Grid.Column="1">
+            <Button Content="Добавить"/>
+            <Button Content="Редактировать"/>
+            <Button Content="Удалить"/>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Center" Orientation="Horizontal" Grid.Row="2">
+            <TextBlock Margin="0,0,10,5" Text="Группа"/>
+            <TextBox x:Name="TB_Group"/>
+            <TextBlock Margin="10,0,10,5" Text="Сумма по всей группе"/>
+            <TextBox x:Name="TB_SumGroup"/>
+            <TextBlock Margin="10,0,10,5" Text="Стпендия"/>
+            <TextBox x:Name="TB_Step"/>
+        </StackPanel>
     </Grid>
 </Window>

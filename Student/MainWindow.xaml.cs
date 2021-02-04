@@ -36,7 +36,7 @@ namespace Student
             {
                 foreach (var autorization in db.Curators.ToList()) 
                 {
-                    if (ComboLog.SelectedItem.ToString() == autorization.LastName && PasswordB.Password == autorization.Password) 
+                    if (ComboLog.SelectedValue.ToString() == autorization.LastName && PasswordB.Password == autorization.Password) 
                     {
                        (new MenuWindow()).Show();                      
                         key = true;

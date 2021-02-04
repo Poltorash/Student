@@ -12,31 +12,16 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Student
+namespace Student.Windows
 {
     /// <summary>
-    /// Логика взаимодействия для MenuWindow.xaml
+    /// Логика взаимодействия для AddStudent.xaml
     /// </summary>
-    public partial class MenuWindow : Window
+    public partial class AddStudent : Window
     {
-        public MenuWindow()
+        public AddStudent()
         {
             InitializeComponent();
-        }
-
-        private void CuratorWin_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void GroupWin_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void ReportWin_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }
