@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Student"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Autorization" Height="450" Width="800" WindowState="Maximized">
     <Window.Resources>
         <Style TargetType="Button">
             <Setter Property="Margin" Value="5"></Setter>
@@ -13,12 +13,14 @@
             <Setter Property="Height" Value="30"></Setter>
             <Setter Property="VerticalAlignment" Value="Center"></Setter>
             <Setter Property="Foreground" Value="#4682B4"/>
-            <!--<Setter Property="Background" Value="#F4A460"></Setter>-->
+            <Setter Property="Background" Value="White"></Setter>
         </Style>
-        <Style TargetType="TextBlock">
-            <Setter Property="VerticalAlignment" Value="Center"></Setter>
-            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
-            <Setter Property="FontFamily" Value=" Tw Cen MT"></Setter>
+        <Style TargetType="TextBox">
+            <Setter Property="FontSize" Value="30"/>
+            <Setter Property="Margin" Value="5,0"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderThickness" Value="0,0,0,0.75"/>
+            <Setter Property="BorderBrush" Value="#4682B4"/>
         </Style>
         <Style TargetType="TextBox">
             <Setter Property="VerticalAlignment" Value="Center"></Setter>
@@ -28,11 +30,11 @@
             <Setter Property="Margin" Value="5"></Setter>
         </Style>
         <Style TargetType="ComboBox">
-            <Setter Property="VerticalAlignment" Value="Center"></Setter>
-            <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
-            <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
-            <Setter Property="Height" Value="30"></Setter>
-            <Setter Property="Margin" Value="5"></Setter>
+            <Setter Property="FontSize" Value="30"/>
+            <Setter Property="Margin" Value="5,0"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderThickness" Value="0,0,0,0.75"/>
+            <Setter Property="BorderBrush" Value="#4682B4"/>
         </Style>
     </Window.Resources>
     <Grid>
@@ -46,10 +48,10 @@
         <TextBlock Text="Авторизация" FontSize="30" HorizontalAlignment="Center"/>
         <Image Source="Resources/logookei.png" HorizontalAlignment="Left" Margin="0,0,0,0.2"></Image>
         <Image Source="Resources/notebook.png" Grid.Row="1" Stretch="Fill"></Image>
-        <TextBlock Text="Логин" Grid.Row="1" FontSize="17" Margin="310,77,434,209"/>
-        <TextBlock Text="Пароль" Grid.Row="1" FontSize="17" Margin="310,144,424,142"/>
+        <TextBlock Text="Логин" Grid.Row="1" FontSize="17" Margin="310,77,434,200"/>
+        <TextBlock Text="Пароль" Grid.Row="1" FontSize="17" Margin="310,144,424,137"/>
         <ComboBox x:Name="ComboLog" SelectedValuePath="LastName" Grid.Row="1" Margin="310,109,282,165" DisplayMemberPath="LastName" Height="30" Width="200"/>
-        <PasswordBox x:Name="PasswordB" PasswordChar="*" Grid.Row="1" Margin="310,167,282,107" Height="30" Width="200"/>
+        <PasswordBox x:Name="PasswordB" PasswordChar="*" Grid.Row="1" Margin="310,172,282,102" Height="30" Width="200"/>
         <Button Content="Войти" Grid.Row="11" HorizontalAlignment="Right" Name="BtnAutorization" Click="BtnAutorization_Click"></Button>
     </Grid>
 </Window>

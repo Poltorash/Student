@@ -52,6 +52,7 @@ namespace Student
         public string LastName { get; set; }
         public string MiddleName { get; set; }
         public int Year_of_admission { get; set; }
+        public decimal Scholarship { get; set; }
         public int? GroupID { get; set; }
         public Group Group { get; set; }
         
