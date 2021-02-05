@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,22 +21,31 @@ namespace Student.Windows
     public partial class AddStudent : Window
     {
         MenuWindow Menu;
-        bool Edit;
+        bool Edit = false;
         Student Students;
+        string FilePath;
         public AddStudent()
         {
             InitializeComponent();
         }
 
-        public void AddCombo()
-        {
-            CB_Curator.ItemsSource = null;
+        public void AddCombo()        {
+       
             CB_Group.ItemsSource = null;
             using (var Db = new StudentModel())
-            {
-                CB_Curator.ItemsSource = Db.Curators.ToList();
+            {             
                 CB_Group.ItemsSource = Db.Groups.ToList();
             }
+        }
+        public AddStudent(MenuWindow menu)
+        {
+            InitializeComponent();
+            Menu = menu;
+            for (int i = 2007; i < 2020; i++)
+            {
+                CB_Year_of_admission.Items.Add(i);
+            }
+
         }
         public AddStudent(MenuWindow menu,Student student,bool edit)
         {
@@ -56,7 +66,14 @@ namespace Student.Windows
                 TB_MiddleName.Text = Students.MiddleName;
                 CB_Year_of_admission.SelectedItem = Students.Year_of_admission - 2007;
                 CB_Group.SelectedItem = Students.GroupID - 1;
-                TB_Scholarship.Text = Students.Scholarship;
+                TB_Scholarship.Text = Students.Scholarship.ToString();
+                BitmapImage bm = new BitmapImage();
+                bm.BeginInit();
+                bm.UriSource = new Uri(Students.Photo, UriKind.Relative);
+                bm.CacheOption = BitmapCacheOption.OnLoad;
+                bm.EndInit();
+                I_Student.Source =bm;
+                
             }
         }
         private void OK_Click(object sender, RoutedEventArgs e)
@@ -75,24 +92,55 @@ namespace Student.Windows
                             FirstName = TB_FirstName.Text,
                             LastName = TB_LastName.Text,
                             MiddleName = TB_MiddleName.Text,
-                            Scholarship = TB_Scholarship.Text,
-                            GroupID = CB_Group.SelectedValue,
-                            Year_of_admission = CB_Year_of_admission.SelectedItem
-                            //Фото не забудь
+                            Scholarship = Convert.ToInt32(TB_Scholarship.Text),
+                            GroupID = Convert.ToInt32(CB_Group.SelectedValue),
+                            Year_of_admission = Convert.ToInt32(CB_Year_of_admission.SelectedItem),
+                            Photo = FilePath
                         });
+                        DB.SaveChanges();
                     }
                 }
-
+                else if (Edit == true)
+                {
+                    using (var DB = new StudentModel())
+                    {
+                        var item = DB.Students.FirstOrDefault(i=>i.StudentID == Students.StudentID);
+                        if (item != null)
+                        {
+                            item.FirstName = TB_FirstName.Text;
+                            item.LastName = TB_LastName.Text;
+                            item.MiddleName = TB_MiddleName.Text;
+                            item.Scholarship = Convert.ToInt32(TB_Scholarship.Text);
+                            item.GroupID = Convert.ToInt32(CB_Group.SelectedValue);
+                            item.Year_of_admission = Convert.ToInt32(CB_Year_of_admission.SelectedItem);
+                            item.Photo = FilePath;
+                        }
+                        DB.SaveChanges();
+                    }
+                }
             }
             catch (Exception ex) 
             {
-                MessageBox.Show(ex.Message)
+                MessageBox.Show(ex.Message);
             }
         }
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
             Menu.IsEnabled = true;
             this.Close();
+        }
+
+        private void I_Student_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Image Files(*.png, *.jpg, *.jpeg, *.bmp, *.gif)|*.png, *.jpg, *.jpeg, *.bmp|All files (*.*)|*.*";
+            FilePath = openFileDialog.FileName;
+            BitmapImage bm = new BitmapImage();
+            bm.BeginInit();
+            bm.UriSource = new Uri(FilePath, UriKind.Relative);
+            bm.CacheOption = BitmapCacheOption.OnLoad;
+            bm.EndInit();
+            I_Student.Source = bm;
         }
     }
 }
