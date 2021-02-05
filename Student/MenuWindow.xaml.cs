@@ -37,13 +37,12 @@ namespace Student
 
         private void CuratorWin_Click(object sender, RoutedEventArgs e)
         {
-            CuratorWindow curator = new CuratorWindow();
-            curator.Show();        
+
         }
 
         private void GroupWin_Click(object sender, RoutedEventArgs e)
         {
-           
+
         }
 
         private void ReportWin_Click(object sender, RoutedEventArgs e)
@@ -53,26 +52,9 @@ namespace Student
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            AddStudent add = new AddStudent(this);
+            AddStudent add = new AddStudent(this,(Student)DGR_Student.SelectedItems, false);
             add.Show();
             this.IsEnabled = false;
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                using (var Db = new StudentModel())
-                {
-                    var item = Db.Students.SingleOrDefault(i=>i.StudentID ==((Student)DGR_Student.SelectedItem).StudentID);
-                    Db.Students.Remove(item);
-                    Db.SaveChanges();
-                }
-            }
-            catch (Exception ex) 
-            {
-                MessageBox.Show(ex.Message);
-            }
         }
     }
 }
