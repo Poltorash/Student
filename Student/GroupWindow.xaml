@@ -43,21 +43,21 @@
         <Grid Grid.Row="0" Grid.Column="2" Background="#4682B4"/>
         <Menu Background="#4682B4" Grid.Column="1" Width="652" Margin="0">
             <MenuItem VerticalAlignment="Center" Header="Справочники" HorizontalAlignment="Center" Margin="0">
-                <MenuItem Background="White" Foreground="#4682B4" Header="Студент" Click="CuratorWin_Click"/>
-                <MenuItem Background="White" Foreground="#4682B4" Header="Куратор" Click="GroupWin_Click"/>
+                <MenuItem Background="White" Foreground="#4682B4" Header="Студент" Click="StudentWin_Click"/>
+                <MenuItem Background="White" Foreground="#4682B4" Header="Куратор" Click="CuratorWin_Click"/>
             </MenuItem>
             <MenuItem VerticalAlignment="Center" Header="Отчет" Click="ReportWin_Click"/>
         </Menu>
-        <DataGrid Grid.Row="1" Grid.Column="1" x:Name="DGR_Student">
+        <DataGrid Grid.Row="1" Grid.Column="1" x:Name="DGR_Group">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Наименование" Binding="{Binding Фамилия}" Width="*"></DataGridTextColumn>
-                <DataGridTextColumn Header="Куратор" Binding="{Binding Фамилия}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Наименование" Binding="{Binding Title}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Куратор" Binding="{Binding Curator.LastName}" Width="*"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
         <StackPanel VerticalAlignment="Center" Grid.Row="1" Grid.Column="2">
             <Button Content="Добавить" Click="Button_Click"/>
-            <Button Content="Редактировать"/>
-            <Button Content="Удалить"/>
+            <Button Content="Редактировать" Click="Button_Click_1"/>
+            <Button Content="Удалить" Click="Button_Click_2"/>
         </StackPanel>
     </Grid>
 </Window>

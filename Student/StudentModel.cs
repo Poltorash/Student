@@ -30,7 +30,7 @@ namespace Student
     {
         public int GroupID { get; set; }
         public string Title { get; set; }
-
+        public int? CuratorID { get; set; }
         public Curator Curator { get; set; }
         public virtual ICollection<Student> Students { get; set; }
     }
@@ -41,8 +41,7 @@ namespace Student
         public string LastName { get; set; }
         public string MiddleName { get; set; }
         public string Password { get; set; }
-        public int? GroupID { get; set; }
-        public Group Group { get; set; }
+        public virtual ICollection<Group> Groups { get; set; }
     }
     public class Student
     {

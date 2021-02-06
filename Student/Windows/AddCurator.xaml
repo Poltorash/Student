@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Student.Windows"
         mc:Ignorable="d"
-        Title="AddCurator" Height="450" Width="800" WindowState="Maximized">
+        Title="AddCurator" Height="450" Width="800" WindowState="Maximized" Closed="Window_Closed">
     <Window.Resources>
         <Style TargetType="ComboBox">
             <Setter Property="FontSize" Value="30"/>

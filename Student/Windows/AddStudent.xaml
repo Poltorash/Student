@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Student.Windows"
         mc:Ignorable="d"
-        Title="Student-Add" Height="450" Width="800" WindowState="Maximized">
+        Title="Student-Add" Height="450" Width="800" WindowState="Maximized" Closed="Window_Closed">
     <Window.Resources>
         <Style TargetType="ComboBox">
             <Setter Property="FontSize" Value="30"/>
@@ -88,9 +88,9 @@
         <TextBox x:Name="TB_MiddleName" Grid.Column="2" Grid.Row="3" VerticalAlignment="Center"/>
         <ComboBox x:Name="CB_Year_of_admission" Grid.Column="2" Grid.Row="4" VerticalAlignment="Center"/>
         <TextBox x:Name="TB_Scholarship" Grid.Column="2" Grid.Row="5" VerticalAlignment="Center"/>
-        <ComboBox x:Name="CB_Group" SelectedItem="{Binding Group}" DisplayMemberPath="Title" SelectedValuePath="GroupID" Grid.Column="2" Grid.Row="6" VerticalAlignment="Center"/>
+        <ComboBox x:Name="CB_Group" SelectedValuePath="GroupID" DisplayMemberPath="Title" Grid.Column="2" Grid.Row="6" VerticalAlignment="Center"/>
         <TextBlock Text="Фото" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="3" VerticalAlignment="Center"/>
-        <Image x:Name="I_Student" Grid.Column="3" Grid.Row="2" Grid.RowSpan="4"/>
+        <Image x:Name="I_Student" Grid.Column="3" Grid.Row="2" Grid.RowSpan="4" MouseLeftButtonUp="I_Student_MouseLeftButtonUp"/>
         <Button Grid.Row="7" Grid.ColumnSpan="5" Width="100" VerticalAlignment="Center" Content="ОК" Click="OK_Click" HorizontalAlignment="Left"/>
         <Button Grid.Row="7" Grid.ColumnSpan="5" Width="100" VerticalAlignment="Center" Content="Отмена" Click="Cancel_Click" HorizontalAlignment="Right"/>
     </Grid>
