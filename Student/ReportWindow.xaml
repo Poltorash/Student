@@ -43,10 +43,11 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="10"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="128*"/>
+            <ColumnDefinition Width="193*"/>
+            <ColumnDefinition Width="180*"/>
+            <ColumnDefinition Width="193*"/>
+            <!--<ColumnDefinition Width="88"/>-->
             <ColumnDefinition Width="10"/>
         </Grid.ColumnDefinitions>
         <Grid Background="#4682B4"/>
@@ -54,31 +55,39 @@
         <Grid Grid.Column="1" Background="#4682B4"/>
         <Grid Grid.Column="3" Background="#4682B4"/>
         <Grid Grid.Column="4" Background="#4682B4"/>
-        <Image Source="Resources/notebook.png" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" Grid.RowSpan="7" Stretch="Fill"></Image>
+        <Image Source="Resources/notebook.png" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="5" Grid.RowSpan="4" Stretch="Fill"></Image>
         <Grid Grid.Row="1" Background="#4682B4"/>
-        <Grid Grid.Row="2" Background="#4682B4"/>
-        <Grid Grid.Row="3" Background="#4682B4"/>
+        <Grid Grid.Row="2" Background="#4682B4" Margin="0,0,0,139" Grid.RowSpan="2"/>
+        <Grid Grid.Row="3" Background="#4682B4" Margin="0,0,0,39" Grid.RowSpan="2"/>
         <Grid Grid.Row="4" Background="#4682B4"/>
-        <Grid Grid.Row="5" Background="#4682B4"/>
+        <Grid Grid.Row="4" Background="#4682B4"/>
         <Grid Grid.Column="5" Background="#4682B4"/>
-        <Grid Grid.Row="1" Grid.Column="5" Background="#4682B4"/>
-        <Grid Grid.Row="2" Grid.Column="5" Background="#4682B4"/>
-        <Grid Grid.Row="3" Grid.Column="5" Background="#4682B4"/>
+        <Grid Grid.Column="6" Background="#4682B4"/>
+        <Grid Grid.Row="4" Grid.Column="6" Background="#4682B4"/>
+        <Grid Grid.Row="3" Grid.Column="6" Background="#4682B4"/>
+        <Grid Grid.Row="2" Grid.Column="6" Background="#4682B4"/>
+        <Grid Grid.Row="1" Grid.Column="6" Background="#4682B4"/>
         <Grid Grid.Row="4" Grid.Column="5" Background="#4682B4"/>
-        <Grid Grid.Row="5" Grid.Column="5" Background="#4682B4"/>
-        <Grid Grid.Row="5" Grid.Column="1" Background="#4682B4"/>
-        <Grid Grid.Row="5" Grid.Column="2" Background="#4682B4"/>
-        <Grid Grid.Row="5" Grid.Column="3" Background="#4682B4"/>
-        <Grid Grid.Row="5" Grid.Column="4" Background="#4682B4"/>
+        <Grid Grid.Row="4" Grid.Column="5" Background="#4682B4"/>
+        <Grid Grid.Row="4" Grid.Column="1" Background="#4682B4"/>
+        <Grid Grid.Row="4" Grid.Column="2" Background="#4682B4"/>
+        <Grid Grid.Row="4" Grid.Column="3" Background="#4682B4"/>
+        <Grid Grid.Row="4" Grid.Column="4" Background="#4682B4"/>
         <TextBlock Grid.ColumnSpan="6" FontSize="35" TextWrapping="Wrap" HorizontalAlignment="Stretch" TextAlignment="Center" Text="Отчет"/>
-        <TextBlock Text="Год поступления" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" VerticalAlignment="Center"/>
-        <TextBlock Text="С" HorizontalAlignment="Center" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center"/>
-        <ComboBox  Grid.Column="2" Grid.Row="2" VerticalAlignment="Center"/>
-        <TextBlock Text="По" HorizontalAlignment="Center" Grid.Row="2" Grid.Column="3" VerticalAlignment="Center"/>
-        <ComboBox Grid.Column="4" Grid.Row="2" VerticalAlignment="Center"/>
-        <TextBlock Text="Группа" HorizontalAlignment="Center" Grid.Row="3" Grid.Column="2" VerticalAlignment="Center"/>
-        <ComboBox Grid.Column="3" Grid.Row="3" VerticalAlignment="Center" SelectedItem="{Binding Group}" DisplayMemberPath="Title"/>
-        <Button Grid.Row="5" Grid.ColumnSpan="6" Width="150" VerticalAlignment="Center" Content="Сформировать" Click="Button_Click" HorizontalAlignment="Left"/>
-        <Button Grid.Row="5" Grid.ColumnSpan="6" Width="150" VerticalAlignment="Center" Content="Отмена" Click="Button_Click" HorizontalAlignment="Right"/>
+        <TextBlock Text="Год поступления" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Grid.ColumnSpan="5" />
+        <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="С" VerticalAlignment="Center"/>
+            <ComboBox  Width="180"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="По" VerticalAlignment="Center"/>
+            <ComboBox Width="180"/>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.ColumnSpan="5" Orientation="Horizontal"> 
+            <TextBlock Text="Группа" VerticalAlignment="Center"/>
+            <ComboBox SelectedItem="{Binding Group}" DisplayMemberPath="Title" Width="180"/>
+        </StackPanel>
+        <Button Grid.Row="4" Grid.ColumnSpan="3" Width="150" VerticalAlignment="Center" Content="Сформировать" Click="Button_Click" HorizontalAlignment="Left" Height="30" Margin="5,5,0,5"/>
+        <Button Grid.Row="4" Grid.ColumnSpan="2" Width="150" VerticalAlignment="Center" Content="Отмена" Click="Button_Click" HorizontalAlignment="Right" Grid.Column="4" Height="30" Margin="0,5,5,5"/>
     </Grid>
 </Window>
