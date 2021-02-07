@@ -78,6 +78,7 @@
         <ComboBox Grid.Column="4" Grid.Row="2" VerticalAlignment="Center"/>
         <TextBlock Text="Группа" HorizontalAlignment="Center" Grid.Row="3" Grid.Column="2" VerticalAlignment="Center"/>
         <ComboBox Grid.Column="3" Grid.Row="3" VerticalAlignment="Center" SelectedItem="{Binding Group}" DisplayMemberPath="Title"/>
-        <Button Grid.Row="5" Grid.ColumnSpan="6" Width="150" VerticalAlignment="Center" Content="Сформировать" Click="Button_Click" HorizontalAlignment="Center"/>
+        <Button Grid.Row="5" Grid.ColumnSpan="6" Width="150" VerticalAlignment="Center" Content="Сформировать" Click="Button_Click" HorizontalAlignment="Left"/>
+        <Button Grid.Row="5" Grid.ColumnSpan="6" Width="150" VerticalAlignment="Center" Content="Отмена" Click="Button_Click" HorizontalAlignment="Right"/>
     </Grid>
 </Window>
